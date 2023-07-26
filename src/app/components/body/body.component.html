@@ -1,0 +1,128 @@
+<app-header></app-header>
+
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" formControlName="firstName">
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" formControlName="lastName">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+    </div>
+    <div>
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" formControlName="phone">
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <input type="text" id="address" formControlName="address">
+    </div>
+    <div>
+      <label for="dateOfBirth">Date of Birth:</label>
+      <input type="date" id="dateOfBirth" formControlName="dateOfBirth">
+    </div>
+    <div>
+      <label for="status">Status:</label>
+      <select id="status" formControlName="status">
+        <option value="single">Single</option>
+        <option value="married">Married</option>
+        <option value="widower">Widower</option>
+      </select>
+    </div>
+    <div>
+      <label for="dni">DNI:</label>
+      <input type="text" id="dni" formControlName="dni">
+    </div>
+    <div>
+      <label for="monthlyIncome">Monthly Income:</label>
+      <input type="number" id="monthlyIncome" formControlName="monthlyIncome">
+    </div>
+    <div>
+      <label for="actualJob">Actual Job:</label>
+      <input type="text" id="actualJob" formControlName="actualJob">
+    </div>
+    <div>
+      <label for="purpose">Purpose:</label>
+      <input type="text" id="purpose" formControlName="purpose">
+    </div>
+    <div>
+      <label for="budget">Budget:</label>
+      <input type="number" id="budget" formControlName="budget">
+    </div>
+    <div>
+      <label for="kindOfProperty">Kind of Property:</label>
+      <select id="kindOfProperty" formControlName="kindOfProperty">
+        <option value="house">House</option>
+        <option value="apartment">Apartment</option>
+        <option value="land">Land</option>
+      </select>
+    </div>
+    <div>
+      <label for="location">Location:</label>
+      <input type="text" id="location" formControlName="location">
+    </div>
+    <div>
+      <label for="characteristics">Characteristics:</label>
+      <textarea id="characteristics" formControlName="characteristics"></textarea>
+    </div>
+    <div>
+      <button type="submit" [disabled]="!customerForm.valid">Submit</button>
+    </div>
+  </form>
+
+
+
+<!-- Tabla de clientes -->
+<div *ngIf="customers.length > 0">
+    <h2>List of Customers</h2>
+    <table>
+      <thead>
+        <tr *ngFor="let customer of customers">
+          <th>Customer ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Date of Birth</th>
+          <th>Status</th>
+          <th>DNI</th>
+          <th>Monthly Income</th>
+          <th>Actual Job</th>
+          <th>Purpose</th>
+          <th>Budget</th>
+          <th>Kind of Property</th>
+          <th>Location</th>
+          <th>Characteristics</th>
+          <td>
+            <button (click)="editCustomer(customer)">Edit</button>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.customerId }}</td>
+          <td>{{ customer.firstName }}</td>
+          <td>{{ customer.lastName }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>{{ customer.address }}</td>
+          <td>{{ customer.dateOfBirth }}</td>
+          <td>{{ customer.status }}</td>
+          <td>{{ customer.dni }}</td>
+          <td>{{ customer.monthlyIncome }}</td>
+          <td>{{ customer.actualJob }}</td>
+          <td>{{ customer.purpose }}</td>
+          <td>{{ customer.budget }}</td>
+          <td>{{ customer.kindOfProperty }}</td>
+          <td>{{ customer.location }}</td>
+          <td>{{ customer.characteristics }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>

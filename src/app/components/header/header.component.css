@@ -1,0 +1,12 @@
+div{
+    background-color: purple;
+}
+
+.header{
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100px; /* Altura del encabezado */
+    font-size: 24px; /* Tamaño de fuente del texto */
+    font-weight: bold; /* Peso de la fuente del texto */
+}
